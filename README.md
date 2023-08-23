@@ -1,7 +1,7 @@
 ## Simple script to generate TS file from .env config
 
 ### Install
-    npm -i generate-ts-from-env
+    npm i generate-ts-from-env
 
     yarn add generate-ts-from-env
 

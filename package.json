@@ -1,6 +1,6 @@
 {
   "name": "generate-ts-from-env",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Generates TS file from env file",
   "bin": "./index.js",
   "repository": {
