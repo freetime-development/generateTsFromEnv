@@ -1,0 +1,21 @@
+{
+  "name": "generate-ts-from-env",
+  "version": "1.0.3",
+  "description": "Generates TS file from env file",
+  "bin": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freetime-development/generateTsFromEnv.git"
+  },
+  "keywords": [
+    "utility",
+    "env",
+    "typescript"
+  ],
+  "author": "Consilius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freetime-development/generateTsFromEnv/issues"
+  },
+  "homepage": "https://github.com/freetime-development/generateTsFromEnv#readme"
+}

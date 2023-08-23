@@ -1,6 +1,8 @@
-// @ts-nocheck
+#!/usr/bin/env node
+
 const fs = require("fs");
 const readline = require("readline");
+const path = require('path');
 
 (async () => {
   const arguments = process.argv.slice(2);
@@ -12,7 +14,7 @@ const readline = require("readline");
 
   async function getKeysFromEnvFile() {
     const keys = [];
-    const fileStream = fs.createReadStream(inputFileArg);
+    const fileStream = fs.createReadStream(path.resolve(inputFileArg))
 
     const rl = readline.createInterface({
       input: fileStream,
@@ -22,7 +24,7 @@ const readline = require("readline");
     // ('\r\n') in input.txt as a single line break.
 
     for await (const line of rl) {
-      const [key] = line.split("=");
+      const [key, _] = line.split("=");
       keys.push(key);
     }
 
@@ -30,6 +32,10 @@ const readline = require("readline");
   }
 
   const keys = await getKeysFromEnvFile();
+  const string = `
+    \ntype Env = {\n\t${keys.map((key) => `${key}: string`).join(",\n \t")} \n}
+    \rexport const env = process.env as unknown as Env;
+  `;
 
-  fs.writeFileSync(outputFileArg, `export type Env = {\n\t${keys.map((key) => `${key}: string`).join(",\n \t")} \n}`);
+  fs.writeFileSync(path.resolve(outputFileArg), string.trim());
 })();
