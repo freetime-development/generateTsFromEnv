@@ -33,7 +33,7 @@ const path = require('path');
 
   const keys = await getKeysFromEnvFile();
   const string = `
-    \ntype Env = {\n\t${keys.map((key) => `${key}: string`).join(",\n \t")} \n}
+    \nexport type Env = {\n\t${keys.map((key) => `${key}: string`).join(",\n \t")} \n}
     \rexport const env = process.env as unknown as Env;
   `;
 
